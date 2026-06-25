@@ -1,0 +1,36 @@
+<!-- <input type="radio" name="gender" id="male" onclick="checkFun()">Male
+<input type="radio" name="gender" id="female" onclick="checkFun()">Female
+<h1 id="result">Male/Female</h1>
+
+
+<script>
+    var male = document.getElementById("male")
+    var female = document.getElementById("female")
+    var result = document.getElementById("result")
+
+    function checkFun()
+    {
+        var check = male.checked?"Male":female.checked?"Female":""
+        result.textContent=check
+    }
+    
+</script> -->
+
+<input type="radio" name="gender" value="Male">Male
+<input type="radio" name="gender" value="Female">Female
+<h1 id="result">Male/Female</h1>
+
+<script>
+
+    var radio = document.getElementsByName("gender")
+    var result= document.getElementById("result")
+
+    for(count=0;count<2;count++)
+{
+    radio[count].addEventListener("click",function()
+{
+    result.textContent = event.target.value
+})
+}
+
+</script>

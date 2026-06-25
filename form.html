@@ -1,0 +1,76 @@
+<h1> Simple Form Validation</h1>
+<form action="">
+    <table>
+    <tr>
+        <td>Name</td>
+        <td><input type="text" id="nameInput"></td>
+        <td id="nameError" style="color: red;display:  none;">Name only contain letters</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><input type="email" id="emailInput"></td>
+        <td id="emailError" style="color: red;display: none;">Provide valid mail address</td>
+    </tr>
+    <tr>
+        <td>Phone</td>
+        <td><input type="text" id="phoneInput"></td>
+        <td id="phoneError" style="color: red;display: none;">It must contain 10 digits</td>
+    </tr>
+    <tr>
+        <td><input  type="submit" id="btn"></td>
+    </tr>
+</table>
+</form>
+
+<script>
+    var nameInput = document.getElementById("nameInput")
+    var emailInput = document.getElementById("emailInput")
+    var phoneInput = document.getElementById("phoneInput")
+    var nameError = document.getElementById("nameError")
+    var emailError= document.getElementById("emailError")
+    var phoneError = document.getElementById("phoneError")
+    var btn = document.getElementById("btn")
+
+    var nameRegex = /^[a-zA-Z]*$/
+    var emailRegex = /^[a-zA-Z]+[0-9]*@gmail\.com$/
+    var phoneRegex = /^\d{10}$/
+
+    
+
+    btn.addEventListener("click",function()
+{
+    event.preventDefault()
+
+    var validate = true;
+if(nameRegex.test(nameInput.value)==true)
+{
+    nameError.style.display = "none"
+}
+else{
+    nameError.style.display = "inline"
+    validate=false
+}
+if(emailRegex.test(emailInput.value)==true)
+{
+    emailError.style.display="none"
+}
+else{
+    emailError.style.display="inline"
+     validate=false
+}
+if(phoneRegex.test(phoneInput.value)==true)
+{
+    phoneError.style.display="none"
+}
+else{
+    phoneError.style.display="inline"
+     validate=false
+}
+
+if(validate==true)
+{
+    alert("Form successfully submited")
+}
+})
+
+</script>
